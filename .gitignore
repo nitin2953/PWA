@@ -1,0 +1,11 @@
+.env
+node_modules
+package-lock.json
+
+dist
+dev
+test
+temp
+tmp
+
+*.zip

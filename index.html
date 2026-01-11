@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- PWA Meta Tags -->
+	<meta name="theme-color" content="#ffffff" id="theme-color-meta">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<meta name="apple-mobile-web-app-title" content="My PWA">
+
+	  <!-- Icons -->
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+
+  <!-- Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+	<!-- Stylesheet -->
+	<link rel="stylesheet" href="style.css">
+
+	<title>My PWA</title>
+</head>
+
+<body>
+	<div class="container">
+		<header>
+			<h1>My PWA</h1>
+			<button id="theme-toggle" class="btn btn-icon" aria-label="Toggle theme">
+				<span class="icon-sun">☀️</span>
+				<span class="icon-moon">🌙</span>
+			</button>
+		</header>
+
+		<main>
+			<section class="card">
+				<h2>Welcome</h2>
+				<p>This is a minimal Progressive Web App with light and dark mode support.</p>
+			</section>
+
+			<section class="card">
+				<h2>PWA Controls</h2>
+				<div class="button-group">
+					<button id="clear-cache-btn" class="btn btn-primary">
+						🗑️ Clear Cache
+					</button>
+					<button id="unregister-btn" class="btn btn-danger">
+						⛔ Unregister SW
+					</button>
+				</div>
+				<p id="status-message" class="status"></p>
+			</section>
+		</main>
+
+		<footer>
+			<p>Built with vanilla HTML, CSS & JS</p>
+		</footer>
+	</div>
+
+	<script src="app.js"></script>
+</body>
+
+</html>

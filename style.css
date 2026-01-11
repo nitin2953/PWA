@@ -1,0 +1,254 @@
+/* ========================================
+   CSS Variables - Light & Dark Theme
+   Based on Main App Color Palette (Slate)
+   ======================================== */
+
+:root {
+	/* Light Mode - Matching Main App */
+	--color-background: rgb(248, 250, 252);
+	--color-background-muted: rgb(241, 245, 249);
+	--color-card: rgb(255, 255, 255);
+	--color-text: rgb(15, 23, 42);
+	--color-text-muted: rgb(100, 116, 139);
+	--color-border: rgb(226, 232, 240);
+	--color-primary: rgb(36, 99, 235);
+	--color-primary-hover: rgb(29, 78, 216);
+
+	/* Accent Colors */
+	--color-blue: rgb(66, 133, 244);
+	--color-blue-30: rgb(66 133 244 / 0.3);
+	--color-blue-10: rgb(66 133 244 / 0.1);
+	--color-green: rgb(52, 168, 83);
+	--color-green-30: rgb(52 168 83 / 0.3);
+	--color-green-10: rgb(52 168 83 / 0.1);
+	--color-red: rgb(234, 67, 53);
+	--color-red-30: rgb(234 67 53 / 0.3);
+	--color-red-10: rgb(234 67 53 / 0.1);
+
+	/* UI */
+	--shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+	--radius: 0.5rem;
+	--status-bar-color: rgb(248, 250, 252);
+}
+
+[data-theme="dark"] {
+	/* Dark Mode - Inverted Slate Palette */
+	--color-background: rgb(15, 23, 42);
+	--color-background-muted: rgb(30, 41, 59);
+	--color-card: rgb(30, 41, 59);
+	--color-text: rgb(241, 245, 249);
+	--color-text-muted: rgb(148, 163, 184);
+	--color-border: rgb(51, 65, 85);
+	--color-primary: rgb(59, 130, 246);
+	--color-primary-hover: rgb(96, 165, 250);
+
+	/* Accent Colors - Slightly brighter for dark mode */
+	--color-blue: rgb(96, 165, 250);
+	--color-blue-30: rgb(96 165 250 / 0.3);
+	--color-blue-10: rgb(96 165 250 / 0.1);
+	--color-green: rgb(74, 222, 128);
+	--color-green-30: rgb(74 222 128 / 0.3);
+	--color-green-10: rgb(74 222 128 / 0.1);
+	--color-red: rgb(248, 113, 113);
+	--color-red-30: rgb(248 113 113 / 0.3);
+	--color-red-10: rgb(248 113 113 / 0.1);
+
+	/* UI */
+	--shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px 0px;
+	--status-bar-color: rgb(15, 23, 42);
+}
+
+/* ========================================
+   Base Styles
+   ======================================== */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+	background-color: var(--color-background);
+	color: var(--color-text);
+	min-height: 100vh;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 1rem;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+/* ========================================
+   Header
+   ======================================== */
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 0;
+	border-bottom: 1px solid var(--color-border);
+	margin-bottom: 1.5rem;
+}
+
+header h1 {
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+/* ========================================
+   Main Content
+   ======================================== */
+
+main {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.card {
+	background-color: var(--color-card);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius);
+	padding: 1.5rem;
+	box-shadow: var(--shadow);
+	transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.card h2 {
+	font-size: 1.25rem;
+	margin-bottom: 0.75rem;
+	font-weight: 600;
+}
+
+.card p {
+	color: var(--color-text-muted);
+	line-height: 1.6;
+}
+
+/* ========================================
+   Buttons
+   ======================================== */
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	padding: 0.75rem 1.25rem;
+	font-size: 1rem;
+	font-weight: 500;
+	border: none;
+	border-radius: var(--radius);
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.btn-primary {
+	background-color: var(--color-primary);
+	color: #ffffff;
+}
+
+.btn-primary:hover {
+	background-color: var(--color-primary-hover);
+}
+
+.btn-danger {
+	background-color: var(--color-red);
+	color: #ffffff;
+}
+
+.btn-danger:hover {
+	background-color: var(--color-red-30);
+	color: var(--color-red);
+}
+
+.btn-icon {
+	background-color: var(--color-background-muted);
+	border: 1px solid var(--color-border);
+	width: 44px;
+	height: 44px;
+	padding: 0;
+	font-size: 1.25rem;
+}
+
+.btn-icon:hover {
+	background-color: var(--color-border);
+}
+
+/* Theme toggle icon visibility */
+.icon-moon {
+	display: none;
+}
+
+[data-theme="dark"] .icon-sun {
+	display: none;
+}
+
+[data-theme="dark"] .icon-moon {
+	display: inline;
+}
+
+.button-group {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin-bottom: 1rem;
+}
+
+/* ========================================
+   Status Message
+   ======================================== */
+
+.status {
+	font-size: 0.875rem;
+	color: var(--color-text-muted);
+	min-height: 1.5rem;
+	margin-top: 0.5rem;
+}
+
+.status.success {
+	color: var(--color-green);
+}
+
+.status.error {
+	color: var(--color-red);
+}
+
+/* ========================================
+   Footer
+   ======================================== */
+
+footer {
+	text-align: center;
+	padding: 1.5rem 0;
+	border-top: 1px solid var(--color-border);
+	margin-top: auto;
+}
+
+footer p {
+	color: var(--color-text-muted);
+	font-size: 0.875rem;
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+
+@media (max-width: 480px) {
+	.button-group {
+		flex-direction: column;
+	}
+
+	.btn {
+		width: 100%;
+	}
+}
