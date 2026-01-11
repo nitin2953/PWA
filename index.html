@@ -5,23 +5,56 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
 	<!-- PWA Meta Tags -->
 	<meta name="color-scheme" content="light dark">
 	<meta name="theme-color" content="#ffffff" id="theme-color-meta">
+	<script>
+		const THEME_KEY = 'color-scheme';
+		const themeColorMeta = document.getElementById('theme-color-meta');
+
+		// Theme colors for status bar (matching main app slate palette)
+		const THEME_COLORS = {
+			light: 'rgb(248, 250, 252)',  // --color-background light
+			dark: 'rgb(15, 23, 42)'       // --color-background dark
+		};
+
+		function getStoredTheme() {
+			return localStorage.getItem(THEME_KEY) || 'light';
+		}
+
+		function setTheme(theme) {
+			document.documentElement.setAttribute('data-theme', theme);
+			localStorage.setItem(THEME_KEY, theme);
+
+			// Update status bar color
+			themeColorMeta.setAttribute('content', THEME_COLORS[theme]);
+		}
+
+		function toggleTheme() {
+			const currentTheme = getStoredTheme();
+			const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+			setTheme(newTheme);
+		}
+
+		// Initialize theme on page load
+		setTheme(getStoredTheme());
+	</script>
 
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="default">
 	<meta name="apple-mobile-web-app-title" content="My PWA">
 
-	  <!-- Icons -->
-  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
-  <link rel="apple-touch-icon" href="icon-192.png">
+	<!-- Icons -->
+	<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+	<link rel="apple-touch-icon" href="icon-192.png">
 
-  <!-- Manifest -->
-  <link rel="manifest" href="manifest.json">
+	<!-- Manifest -->
+	<link rel="manifest" href="manifest.json">
 
 	<!-- Stylesheet -->
 	<link rel="stylesheet" href="style.css">
+	<script src="app.js" defer></script>
 
 	<title>My PWA</title>
 </head>
@@ -61,7 +94,6 @@
 		</footer>
 	</div>
 
-	<script src="app.js"></script>
 </body>
 
 </html>

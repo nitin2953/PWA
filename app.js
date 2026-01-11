@@ -2,36 +2,36 @@
 // Theme Management
 // ========================================
 
-const THEME_KEY = 'color-scheme';
-const themeToggleBtn = document.getElementById('theme-toggle');
+// const THEME_KEY = 'color-scheme';
+// const themeToggleBtn = document.getElementById('theme-toggle');
 const themeColorMeta = document.getElementById('theme-color-meta');
 
-// Theme colors for status bar (matching main app slate palette)
-const THEME_COLORS = {
-	light: 'rgb(248, 250, 252)',  // --color-background light
-	dark: 'rgb(15, 23, 42)'       // --color-background dark
-};
+// // Theme colors for status bar (matching main app slate palette)
+// const THEME_COLORS = {
+// 	light: 'rgb(248, 250, 252)',  // --color-background light
+// 	dark: 'rgb(15, 23, 42)'       // --color-background dark
+// };
 
-function getStoredTheme() {
-	return localStorage.getItem(THEME_KEY) || 'light';
-}
+// function getStoredTheme() {
+// 	return localStorage.getItem(THEME_KEY) || 'light';
+// }
 
-function setTheme(theme) {
-	document.documentElement.setAttribute('data-theme', theme);
-	localStorage.setItem(THEME_KEY, theme);
+// function setTheme(theme) {
+// 	document.documentElement.setAttribute('data-theme', theme);
+// 	localStorage.setItem(THEME_KEY, theme);
 
-	// Update status bar color
-	themeColorMeta.setAttribute('content', THEME_COLORS[theme]);
-}
+// 	// Update status bar color
+// 	themeColorMeta.setAttribute('content', THEME_COLORS[theme]);
+// }
 
-function toggleTheme() {
-	const currentTheme = getStoredTheme();
-	const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-	setTheme(newTheme);
-}
+// function toggleTheme() {
+// 	const currentTheme = getStoredTheme();
+// 	const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+// 	setTheme(newTheme);
+// }
 
-// Initialize theme on page load
-setTheme(getStoredTheme());
+// // Initialize theme on page load
+// setTheme(getStoredTheme());
 
 themeToggleBtn.addEventListener('click', toggleTheme);
 

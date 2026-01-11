@@ -32,6 +32,8 @@
 }
 
 :root[data-theme="dark"] {
+	color-scheme: dark;
+
 	/* Dark Mode - Inverted Slate Palette */
 	--color-background: rgb(15, 23, 42);
 	--color-background-muted: rgb(30, 41, 59);
@@ -56,6 +58,8 @@
 	/* UI */
 	--shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px 0px;
 	--status-bar-color: rgb(15, 23, 42);
+
+	scrollbar-color: var(--color-text-muted) var(--color-background-muted);
 }
 
 /* ========================================
