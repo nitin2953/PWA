@@ -2,7 +2,7 @@
 // Theme Management
 // ========================================
 
-const THEME_KEY = 'pwa-theme';
+const THEME_KEY = 'color-scheme';
 const themeToggleBtn = document.getElementById('theme-toggle');
 const themeColorMeta = document.getElementById('theme-color-meta');
 
