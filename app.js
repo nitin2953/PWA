@@ -21,7 +21,7 @@ function setTheme(theme) {
 	localStorage.setItem(THEME_KEY, theme);
 
 	// Update status bar color
-	if (themeColorMeta) themeColorMeta.setAttribute('content', THEME_COLORS[theme]);
+	themeColorMeta.setAttribute('content', THEME_COLORS[theme]);
 }
 
 function toggleTheme() {
